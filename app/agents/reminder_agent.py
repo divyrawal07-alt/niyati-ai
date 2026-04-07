@@ -3,6 +3,8 @@ def set_reminders(schedule):
     for item in schedule:
         reminders.append({
             "task": item["task"],
-            "reminder": "Daily reminder set"
+            "reminder_time": "9:00 AM",
+            "status": "Scheduled",
+            "integration": "Can be synced with Google Calendar"
         })
     return reminders
