@@ -23,9 +23,10 @@ def plan_life(data: dict):
     content=str(schedule)
 )
 
-    return {
-        "message": "Multi-agent plan generated",
-        "plan": plan,
-        "schedule": schedule,
-        "reminders": reminders
-    }
+   return {
+    "message": "Multi-agent plan generated",
+    "plan": plan,
+    "schedule": schedule,
+    "reminders": reminders,
+    "notification": email_status
+}
