@@ -17,6 +17,11 @@ def plan_life(data: dict):
     plan = generate_plan(priorities)
     schedule = create_schedule(plan)
     reminders = set_reminders(schedule)
+    email_status = send_email_notification(
+    to_email="your_email@gmail.com",
+    subject="Your Weekly Plan",
+    content=str(schedule)
+)
 
     return {
         "message": "Multi-agent plan generated",
