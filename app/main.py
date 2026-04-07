@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+from app.agents.planner_agent import generate_plan
+from app.agents.scheduler_agent import create_schedule
+from app.agents.reminder_agent import set_reminders
 
 app = FastAPI()
 
@@ -8,7 +11,15 @@ def home():
 
 @app.post("/plan-life")
 def plan_life(data: dict):
+    priorities = data.get("priorities", {})
+
+    plan = generate_plan(priorities)
+    schedule = create_schedule(plan)
+    reminders = set_reminders(schedule)
+
     return {
-        "message": "Plan generated successfully",
-        "input": data
+        "message": "Multi-agent plan generated",
+        "plan": plan,
+        "schedule": schedule,
+        "reminders": reminders
     }
