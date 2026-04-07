@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.agents.planner_agent import generate_plan
 from app.agents.scheduler_agent import create_schedule
 from app.agents.reminder_agent import set_reminders
+from app.tools.notification_service import send_email_notification
 
 app = FastAPI()
 
